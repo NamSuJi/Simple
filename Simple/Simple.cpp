@@ -1,5 +1,6 @@
 #include<afxwin.h>
-
+#include<atlimage.h>
+//ì´ë¯¸ì§€ ì²˜ë¦¬ë¥¼ ìœ„í•´ atlimage.h í—¤ë” ì¶”ê°€
 class CMainFrame : public CFrameWnd {
 public:
 	CMainFrame() {
@@ -18,9 +19,9 @@ class CMyApp : public CWinApp {
 	}
 };
 
-CMyApp theApp;//°´Ã¼ ¸¸µé¾îÁü
+CMyApp theApp;//ê°ì²´ ë§Œë“¤ì–´ì§
 
-//MAPÀº ÀüºÎ ¸ÅÅ©·ÎÀÌ¹Ç·Î ;À» ºÙÀÌÁö ¾Ê´Â´ÙBEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
+//MAPì€ ì „ë¶€ ë§¤í¬ë¡œì´ë¯€ë¡œ ;ì„ ë¶™ì´ì§€ ì•ŠëŠ”ë‹¤BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_WM_PAINT()
 END_MESSAGE_MAP()
@@ -28,9 +29,8 @@ END_MESSAGE_MAP()
 
 void CMainFrame::OnPaint()
 {
+	CImage img;
 	CPaintDC dc(this);
-	CBrush b;
-	b.CreateSolidBrush(RGB(0, 0, 255));//»ö»ó Àû¿ë °¡´É
-	dc.SelectObject(&b);
-	dc.Rectangle(100, 100, 200, 200);
+	img.Load(L"wel.jpg");
+	img.Draw(dc, 100, 0);
 }
